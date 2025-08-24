@@ -1,5 +1,6 @@
 from modelo.ninja import Ninja
 from modelo.jutsu import Jutsu
+from modelo.estadisticas import Estadisticas
 
 class NinjaFactory:
     def crear_ninja(self, nombre, rango):
@@ -7,18 +8,21 @@ class NinjaFactory:
 
 class KonohaFactory(NinjaFactory):
     def crear_ninja(self, nombre, rango):
-        ninja = Ninja(nombre, rango, 10, 8, 12, "Konoha")
-        ninja.agregar_jutsu(Jutsu("Rasengan", "Ninjutsu", 20))
+        estadisticas = Estadisticas(ataque=10, defensa=8, chakra=12)
+        jutsu = [Jutsu("Rasengan", "Ninjutsu", 20)]
+        ninja = Ninja(nombre, rango,"Konoha", estadisticas,jutsu)
         return ninja
 
 class SunaFactory(NinjaFactory):
     def crear_ninja(self, nombre, rango):
-        ninja = Ninja(nombre, rango, 9, 10, 11, "Suna")
-        ninja.agregar_jutsu(Jutsu("Arenas movedizas", "Ninjutsu", 18))
+        estadisticas = Estadisticas(ataque=9, defensa=10, chakra=11)
+        jutsu = [Jutsu("Arenas movedizas", "Ninjutsu", 18)]
+        ninja = Ninja(nombre, rango,"Suna",estadisticas,jutsu)
         return ninja
 
 class KiriFactory(NinjaFactory):
     def crear_ninja(self, nombre, rango):
-        ninja = Ninja(nombre, rango, 8, 11, 10, "Kiri")
-        ninja.agregar_jutsu(Jutsu("Agua negra", "Olas fuertes", 22))
+        jutsu = [Jutsu("Agua negra", "Ninjutsu", 22)]
+        estadisticas = Estadisticas(ataque=8, defensa=11, chakra=10)
+        ninja = Ninja(nombre, rango, "Kiri",estadisticas,jutsu)
         return ninja

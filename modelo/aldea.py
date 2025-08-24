@@ -4,6 +4,7 @@ class Aldea:
         self.ninjas = []
 
     def agregar_ninja(self, ninja):
+        ninja.aldea = self  
         self.ninjas.append(ninja)
         print(f"El ninja {ninja.nombre} pertenece a la aldea {self.nombre}")
 
@@ -13,3 +14,6 @@ class Aldea:
             print("No hay ninjas en esta aldea")
         for ninja in self.ninjas:
             print(f"Nombre: {ninja.nombre}")
+
+    def __str__(self):
+        return f"{self.nombre}"

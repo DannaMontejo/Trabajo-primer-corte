@@ -10,7 +10,16 @@ class Mision:
 
     def disponible_para(self, ninja):
         """Ninja misión según su rango"""
-        return ninja.rango == self.requisito_rango
+        if ninja.rango == "Kage":
+            return True  
+        elif ninja.rango == "Jōnin":
+            return self.requisito_rango in ["Genin", "Chūnin", "Jōnin"]
+        elif ninja.rango == "Chūnin":
+            return self.requisito_rango in ["Genin", "Chūnin"]
+        elif ninja.rango == "Genin":
+            return self.requisito_rango == "Genin"
+        else:
+            return False
 
 #mision_D = Mision("Recolectar hierbas", "D", 500, "Genin")
 #mision_A = Mision("Proteger al una princesa", "A", 5000, "Jounin")
