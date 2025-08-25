@@ -20,6 +20,9 @@ class Mision:
             return self.requisito_rango == "Genin"
         else:
             return False
+        
+    def accept(self, visitor):
+        visitor.visit_mision(self)
 
 #mision_D = Mision("Recolectar hierbas", "D", 500, "Genin")
 #mision_A = Mision("Proteger al una princesa", "A", 5000, "Jounin")

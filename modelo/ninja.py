@@ -47,3 +47,6 @@ class Ninja:
 
     def __str__(self):
         return f"Nombre: {self.nombre}, Rango: {self.rango}, Aldea: {self.aldea}, Estadisticas ( {self.estadisticas} )"
+    
+    def accept(self, visitor):
+        visitor.visit_ninja(self)
